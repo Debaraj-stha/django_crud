@@ -1,0 +1,185 @@
+{% extends 'base.html'%}
+{%block body%}
+
+<table class="table table-dark mt-5">
+	<thaed>
+		<tr>
+			<td>Name</td>
+			<td>Email</td>
+			<td>Action</td>
+		</tr>
+	</thead>
+	<tbody id="contacts">
+		
+	 
+	</tbody>
+
+</table>
+<div class="pagination pagination-sm"id="pages">
+</div>
+<!-- Button trigger modal -->
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="modalTitle">Update Modal</h5>
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+		<div class="modal-body">
+			<form method="post"id="updateForm">
+				{% csrf_token %}
+		
+				<div class="form-group">
+					<label for="exampleInputPassword1">Name:</label>
+					<input type="name" id="name" class="form-control"  placeholder="name"name="name">
+				  </div>
+				<div class="form-group">
+				  <label for="exampleInputEmail1">Email address</label>
+				  <input type="email" id="email" class="form-control"  aria-describedby="emailHelp" placeholder="Enter email"name="email">
+				  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+				</div>
+				<input type="hidden" name="pk"id="pk"/>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="submit" class="btn btn-primary" id="updateUser">Save changes</button>
+			  </form>
+	  </div>
+	</div>
+  </div>
+</div>
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-warning alert-dismissible fade show {{ message.tags }}" role="alert">
+   <strong> {{ message }}!</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endfor %}
+  {% endif %}
+  <script>
+	var openModal;
+	let   deleteUserbtn;
+	let itemsPerPage=5;
+	let currentPage=1;
+	let data={{contacts|safe}}
+
+	let listHolder=document.getElementById("contacts")
+	let pageHolder=document.getElementById("pages")
+	let myModal;
+	function displayuserList(wrapper, itemsPerPage,page,items){
+	wrapper.innerHTML="";
+	page--;
+	let start=itemsPerPage*page;
+	let end=start+itemsPerPage;
+	let pageData=data.slice(start,end);
+	for(let i=0;i<pageData.length;i++){
+		let item=pageData[i]
+		let tr=document.createElement('tr')
+		let nameField=document.createElement('td')
+		let emailField=document.createElement('td')
+		nameField.innerText=item.fields.name
+		emailField.innerText=item.fields.email
+		let actionField=document.createElement('td')
+		let updateButton=document.createElement('button')
+		let deleteButton=document.createElement('button')
+		updateButton.classList.add('btn-primary','btn',"updateButton")
+		deleteButton.classList.add('btn-danger','btn',"deleteButton")
+		updateButton.innerText="Update"
+		deleteButton.innerText="Delete"
+		actionField.appendChild(updateButton)
+		actionField.appendChild(deleteButton)
+		updateButton.id="updateButton"
+		deleteButton.id=item.pk
+		updateButton.style.margin="5px"
+		updateButton.dataset.pk=item.pk
+		deleteButton.dataset.pk=item.pk
+		tr.appendChild(nameField)
+		tr.appendChild(emailField)
+		tr.appendChild(actionField)
+		tr.dataset.pk=item.pk
+		wrapper.appendChild(tr)
+		console.log(item)
+	}
+  
+	}
+	function showPages(wrapper,items,itemsPerPage){
+		let pages=Math.ceil(items.length/itemsPerPage)
+		for(let i=1;i<pages+1;i++){
+			let btn=createButton(i,items)
+			wrapper.appendChild(btn)
+		}
+	}
+	function createButton(page,items){
+		let button=document.createElement('button')
+	   button.innerText=page;
+	   button.classList.add('btn')
+	   if(currentPage==page){
+		button.classList.add('btn-success')
+	   }
+	   button.addEventListener('click',function(){
+		currentPage=page
+		let currentActiveButton=document.querySelector('.btn-success')
+		displayuserList(listHolder, itemsPerPage,currentPage,items)
+		attachButtonListeners()
+		currentActiveButton.classList.remove('btn-success')
+		button.classList.add('btn-success')
+	   })
+	   return button
+	}
+	displayuserList(listHolder, itemsPerPage,currentPage,data)
+	showPages(pageHolder,data,itemsPerPage)
+	attachButtonListeners()
+	function openModal(dataProductId){
+let updateModal=document.getElementById("updateModal")
+myModal = new bootstrap.Modal(updateModal);
+const tr=document.querySelector(`tr[data-pk="${dataProductId}"]`)
+const name=tr.querySelector('td:nth-child(1)').textContent
+const email=tr.querySelector('td:nth-child(2)').textContent
+const nameField=document.getElementById("name")
+const emailField=document.getElementById("email")
+const pk=document.getElementById("pk")
+pk.value=dataProductId
+nameField.value=name;
+emailField.value=email;
+console.log(name)
+console.log(tr)
+myModal.show();
+	}
+	function attachButtonListeners() {
+		const openModelButton = document.querySelectorAll('.updateButton');
+		openModelButton.forEach(button => {
+		  button.addEventListener("click", function () {
+			let dataProductId = button.dataset.pk
+			openModal(dataProductId);
+		  });
+		});
+	  }
+	 
+
+
+
+   const deleteButton=document.querySelectorAll(".deleteButton")
+   deleteButton.forEach(button=>{
+	button.addEventListener("click",function(){
+		const pk=button.dataset.pk
+		console.log(pk)
+		$.get({
+			url:`delete-contact/${pk}`,
+			method:'GET',
+			success:function(response){
+				console.log("success")
+			},
+			error:function(response){
+				console.log("success")
+			}
+		})
+	})
+   })
+	
+</script>
+{%endblock body%}
