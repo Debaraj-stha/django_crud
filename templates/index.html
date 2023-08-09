@@ -1,10 +1,25 @@
 {% extends 'base.html' %}
-{%block title%}home page{%endblock title%}
+{%block name%}
+{{name}}
+{%endblock name%}
+{%block title%}
+
+home page{%endblock title%}
 {%block body%}
 <h1>
   This is home page
 </h1>
 
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-warning alert-dismissible fade show {{ message.tags }}" role="alert">
+   <strong> {{ message }}!</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endfor %}
+  {% endif %}
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">

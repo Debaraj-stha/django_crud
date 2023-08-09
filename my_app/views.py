@@ -2,8 +2,9 @@
 import json
 from django.contrib.auth import authenticate
 from django.contrib.auth import logout,login
-from django.shortcuts import redirect, render,HttpResponse
-from my_app.models import Contact
+from django.shortcuts import redirect, render,HttpResponse,HttpResponseRedirect
+from my_app.models import Contact,myUser,Post
+from my_app.forms import uploadPostForm
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.core import serializers
@@ -77,3 +78,30 @@ def deleteContact(request,id):
 def logoutUser(request):
     logout(request)
     return redirect('/login')
+def signUp(request):
+    name = None
+    
+    if 'name' in request.COOKIES:
+        name = request.COOKIES['name']
+        return render(request, 'home.html', {'name': name})
+
+    if request.method == 'POST':
+        form = uploadPostForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Post uploaded successfully")
+
+            name = request.POST.get('name')
+            response = redirect('home')
+            response.set_cookie('name', name)  # Set the 'name' cookie
+            return response
+    else:
+        form = uploadPostForm()
+
+    return render(request, 'signup.html', {'form': form, 'name': "Welcome"})
+
+
+def logout(request):
+        response = HttpResponseRedirect('/signup')
+        response.delete_cookie('name')
+        return response
