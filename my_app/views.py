@@ -3,8 +3,8 @@ import json
 from django.contrib.auth import authenticate
 from django.contrib.auth import logout,login
 from django.shortcuts import redirect, render,HttpResponse,HttpResponseRedirect
-from my_app.models import Contact,myUser,Post
-from my_app.forms import uploadPostForm
+from my_app.models import Contact,myUser,Post,multipleImage
+from my_app.forms import uploadPostForm,multipleImageForm
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.core import serializers
@@ -105,3 +105,24 @@ def logout(request):
         response = HttpResponseRedirect('/signup')
         response.delete_cookie('name')
         return response
+def multipleImageUpload(request):
+    images=multipleImage.objects.all()
+    print(serializers.serialize('json',images))
+    if request.method == 'POST':
+        form = multipleImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            for image in request.FILES.getlist('images'):
+                    multipleImage.objects.create(images=image)
+            
+            form.save()     
+            messages.success(request, "Images uploaded successfully")
+            return redirect('multipleImageUpload')
+        else:
+            print("invalid")
+            print(form.errors)
+       
+    else:
+        form = multipleImageForm()
+
+    return render(request, 'multipleImageUpload.html', {'form': form,'images':images})
+

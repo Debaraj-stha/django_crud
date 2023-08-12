@@ -1,0 +1,310 @@
+[
+    {
+        "model": "my_app.multipleimage",
+        "pk": 1,
+        "fields": {
+            "images": "multipleimage/Screenshot_34.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 2,
+        "fields": {
+            "images": "multipleimage/Screenshot_34_e0Und5g.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 3,
+        "fields": {
+            "images": "multipleimage/router3.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 4,
+        "fields": {
+            "images": "multipleimage/Screenshot_34_EyJGC2a.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 5,
+        "fields": {
+            "images": "multipleimage/Screenshot_35.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 6,
+        "fields": {
+            "images": "multipleimage/router1.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 7,
+        "fields": {
+            "images": "multipleimage/router1_xDVvUBX.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 8,
+        "fields": {
+            "images": "multipleimage/Screenshot_2023-04-21_114149.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 9,
+        "fields": {
+            "images": "multipleimage/interface_router2.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 10,
+        "fields": {
+            "images": "multipleimage/first_outer_rip.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 11,
+        "fields": {
+            "images": "multipleimage/first_router.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 12,
+        "fields": {
+            "images": "multipleimage/interface_network_router0.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 13,
+        "fields": {
+            "images": "multipleimage/interface_rourter1.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 14,
+        "fields": {
+            "images": "multipleimage/interface_router2_dhGxvnO.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 15,
+        "fields": {
+            "images": "multipleimage/interface_router22.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 16,
+        "fields": {
+            "images": "multipleimage/ospf.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 17,
+        "fields": {
+            "images": "multipleimage/ospf_first_router_ip_config.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 18,
+        "fields": {
+            "images": "multipleimage/ospf_ping_from_first_to_second.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 19,
+        "fields": {
+            "images": "multipleimage/ospf_ping_from_second_to_first.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 20,
+        "fields": {
+            "images": "multipleimage/ospf_second_router_ip_config.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 21,
+        "fields": {
+            "images": "multipleimage/pinging_from_first_to_second.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 22,
+        "fields": {
+            "images": "multipleimage/pinging_from_second_to_first.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 23,
+        "fields": {
+            "images": "multipleimage/rip.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 24,
+        "fields": {
+            "images": "multipleimage/rip_first_ping.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 25,
+        "fields": {
+            "images": "multipleimage/rip_network.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 26,
+        "fields": {
+            "images": "multipleimage/rip_second_ping.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 27,
+        "fields": {
+            "images": "multipleimage/router0_ospf_configuration.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 28,
+        "fields": {
+            "images": "multipleimage/router0_rip_route.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 29,
+        "fields": {
+            "images": "multipleimage/router1_ospf_configuration.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 30,
+        "fields": {
+            "images": "multipleimage/router1_rip_route.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 31,
+        "fields": {
+            "images": "multipleimage/Screenshot_2023-08-01_190605.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 32,
+        "fields": {
+            "images": "multipleimage/second_router.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 33,
+        "fields": {
+            "images": "multipleimage/second_router_rip.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 34,
+        "fields": {
+            "images": "multipleimage/second_router_rip_miIWaeK.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 35,
+        "fields": {
+            "images": "multipleimage/router1_rip_route_A1m0vKD.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 36,
+        "fields": {
+            "images": "multipleimage/Screenshot_2023-08-01_190605_5o7BDOq.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 37,
+        "fields": {
+            "images": "multipleimage/second_router_GZosLUg.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 38,
+        "fields": {
+            "images": "multipleimage/second_router_rip_QKDYy5i.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 39,
+        "fields": {
+            "images": "multipleimage/second_router_rip_UlchEN2.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 40,
+        "fields": {
+            "images": "multipleimage/router1_rip_route_zljcrOM.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 41,
+        "fields": {
+            "images": "multipleimage/Screenshot_2023-08-01_190605_1WH6yeK.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 42,
+        "fields": {
+            "images": "multipleimage/second_router_ffavaho.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 43,
+        "fields": {
+            "images": "multipleimage/second_router_rip_5vXMxZt.png"
+        }
+    },
+    {
+        "model": "my_app.multipleimage",
+        "pk": 44,
+        "fields": {
+            "images": "multipleimage/second_router_rip_TaMutbJ.png"
+        }
+    }
+]

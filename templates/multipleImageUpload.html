@@ -1,0 +1,43 @@
+{%extends 'base.html'%}
+{% block body %}
+<div class="container mt-5">
+
+	<form method="post" enctype="multipart/form-data">
+		{% csrf_token%}
+		<div class="form-group">
+			<label for="exampleInputPassword1">Image:</label>
+			<input type="file" class="form-control" id="images" name="images" placeholder="Images" multiple />
+
+		</div>
+
+		<button type="submit" class="btn btn-primary">SignUp</button>
+	</form>
+	<div class="mt-4">
+		{% if messages %}
+		{%for message in messages%}
+		<div class="alert alert-warning alert-dismissible fade show {{ message.tags }}" role="alert">
+			<strong> {{ message }}!</strong>
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			</button>
+		</div>
+		{%endfor%}
+		{%endif%}
+	</div>
+	<div class="mt-5 p-5">
+		{% if images %}
+		<h1 class="text-center text-primary">Uploaded images</h1>
+
+		<div class="row">
+			{% for image in images %}
+			<div class="col-lg-4 col-md-3 col-sm-1 m-1">
+				<img src="{{ image.images.url }}" alt="image" height="100" />
+			</div>
+			{% endfor %}
+
+		</div>
+		{% else %}
+		<p>No images uploaded yet.</p>
+		{% endif %}
+	</div>
+</div>
+{%endblock body%}

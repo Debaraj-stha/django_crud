@@ -19,3 +19,5 @@ class Post(models.Model):
      email = models.CharField(max_length=100)
      password = models.CharField(max_length=100)
      image=models.FileField(upload_to="image/",max_length=200,null=True)
+class multipleImage(models.Model):
+    images=models.ImageField(upload_to="multiple_image/",max_length=250,null=True)

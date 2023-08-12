@@ -17,6 +17,7 @@ urlpatterns = [
     # path('login', views.Login,name="login"),
     path('delete-contact/<int:id>', views.deleteContact, name="deletecontact"),
     path('logout', views.logout,name="logout"),
+    path('multiple-image-upload',views.multipleImageUpload,name="multipleImageUpload"),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
